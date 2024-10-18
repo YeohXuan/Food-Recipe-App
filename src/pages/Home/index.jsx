@@ -7,10 +7,9 @@ export default function Home() {
   const { setSearchParam, searchResults, setSearchResults } =
     useContext(GlobalContext);
   const [searchParams] = useSearchParams();
-
+  const query = searchParams.get("search");
+  
   useEffect(() => {
-    const query = searchParams.get("search");
-
     if (query) {
       setSearchParam(query);
       async function fetchResults() {
