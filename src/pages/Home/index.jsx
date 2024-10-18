@@ -8,7 +8,7 @@ export default function Home() {
     useContext(GlobalContext);
   const [searchParams] = useSearchParams();
   const query = searchParams.get("search");
-  
+
   useEffect(() => {
     if (query) {
       setSearchParam(query);
@@ -39,16 +39,14 @@ export default function Home() {
         ) : (
           <div className="sm:py-0">
             <p className="lg:text-3xl text-xl text-center text-grey font-extrabold">
-              Search up a recipe to start cooking!No results found for "{query}
-              ". Please try searching for something else.
+              No results found for "{query}". Please try searching for something else.
             </p>
           </div>
         )
       ) : (
         <div className="sm:py-0">
           <p className="lg:text-3xl text-xl text-center text-grey font-extrabold">
-            Search up a recipe to start cooking!No results found for "{query}".
-            Please try searching for something else.
+            Search up a recipe to start cooking!
           </p>
         </div>
       )}
