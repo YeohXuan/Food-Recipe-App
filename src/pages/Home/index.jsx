@@ -32,14 +32,24 @@ export default function Home() {
 
   return (
     <div className="py-8 container mx-auto flex flex-wrap justify-center gap-5 lg:gap-8">
-      {searchResults && searchResults.length > 0 ? (
-        searchResults.map((recipe, index) => (
-          <RecipeItem item={recipe} key={index} />
-        ))
+      {query ? (
+        searchResults && searchResults.length > 0 ? (
+          searchResults.map((recipe, index) => (
+            <RecipeItem item={recipe} key={index} />
+          ))
+        ) : (
+          <div className="sm:py-0">
+            <p className="lg:text-3xl text-xl text-center text-grey font-extrabold">
+              Search up a recipe to start cooking!No results found for "{query}
+              ". Please try searching for something else.
+            </p>
+          </div>
+        )
       ) : (
         <div className="sm:py-0">
           <p className="lg:text-3xl text-xl text-center text-grey font-extrabold">
-            Search up a recipe to start cooking!
+            Search up a recipe to start cooking!No results found for "{query}".
+            Please try searching for something else.
           </p>
         </div>
       )}
